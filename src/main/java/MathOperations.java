@@ -36,7 +36,7 @@ public class MathOperations {
 
     public static double averageSpeed(double distance, double time) {
         if (time == 0) {
-            throw new LayerInstantiationException("На 0 делить нельзя");
+            throw new IllegalArgumentException("Нельзя рассчитывать среднюю скорость при time = 0");
         }
         return (double) distance / time;
     }
@@ -51,9 +51,9 @@ public class MathOperations {
 
     public static double calculatePercentage(double total, double part) {
         if (total == 0) {
-            throw new LayerInstantiationException("На 0 делить нельзя");
+            throw new IllegalArgumentException("Нельзя делить на 0: total = 0");
         }
-        return (double) total / part;
+        return (part / total) * 100.0;
     }
     public static double celsiusToFahrenheit(double c) {
         return (double) c * 9 / 5 + 32;
